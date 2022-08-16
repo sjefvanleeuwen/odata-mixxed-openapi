@@ -24,7 +24,14 @@ namespace WebApi.ODataMixxedOpenApi
             services.AddControllers().AddOData(opt => opt.AddRouteComponents("odata", EdmModelBuilder.Build()));
             services.AddMvc(options => options.EnableEndpointRouting = false);
             services.AddSingleton<IRepository<WeatherForecast>, WeatherForecastRepository>();
-            services.AddSwaggerGen(options => options.OperationFilter<EnableQueryFilter>());
+            services.AddSwaggerGen(
+                options => {
+                    options.OperationFilter<EnableQueryFilter>();
+                    options.DocumentFilter<CustomSwaggerFilter>();
+            
+            });
+            services.AddHttpContextAccessor();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

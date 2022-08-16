@@ -20,7 +20,7 @@ namespace WebApi.ODataMixxedOpenApi.Controllers.OData
         }
 
         [EnableQuery]
-        [HttpGet("odata/WeatherForecast")]
+        [HttpGet("odata/public/WeatherForecast")]
         [HttpGet("odata/WeatherForecast/$count")]
         public ActionResult<IQueryable<WeatherForecast>> GetAll()
         {

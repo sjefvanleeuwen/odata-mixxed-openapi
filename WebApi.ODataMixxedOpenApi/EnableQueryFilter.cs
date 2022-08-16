@@ -5,7 +5,6 @@ using System.Linq;
 
 namespace WebApi.ODataMixxedOpenApi
 {
-
     public class EnableQueryFilter : IOperationFilter
     {
         static List<OpenApiParameter> s_Parameters = new List<(string Name, string Description)>()
