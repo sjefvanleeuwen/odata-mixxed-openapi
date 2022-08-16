@@ -24,7 +24,8 @@ namespace WebApi.ODataMixxedOpenApi.Controllers.OData
         [HttpGet("odata/WeatherForecast/$count")]
         public ActionResult<IQueryable<WeatherForecast>> GetAll()
         {
-            var x = _weatherForecastRepository.GetAll().AsQueryable();
+            // Let's say the user is only allowed to qyery temperatures in amsterdam.
+            var x = _weatherForecastRepository.GetAll().Where(p=>p.City == "Amsterdam").AsQueryable();
             return Ok(x);
         }
     }

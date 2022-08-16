@@ -14,6 +14,11 @@ namespace WebApi.ODataMixxedOpenApi.Repositories
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
+        private static readonly string[] Cities = new[]
+{
+            "Amsterdam", "Rotterdam", "The Hague", "Utrecht"
+        };
+
         public WeatherForecastRepository()
         {
             // create some fakedata
@@ -22,6 +27,7 @@ namespace WebApi.ODataMixxedOpenApi.Repositories
             {
 
                 Id = Guid.NewGuid().ToString(),
+                City = Cities[rng.Next(Cities.Length)],
                 Date = DateTime.Now.AddDays(index),
                 TemperatureC = rng.Next(-20, 55),
                 Summary = Summaries[rng.Next(Summaries.Length)]
