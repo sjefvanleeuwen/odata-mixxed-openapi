@@ -8,6 +8,8 @@ using WebApi.ODataMixxedOpenApi.Repositories;
 
 namespace WebApi.ODataMixxedOpenApi.Controllers.OData
 {
+    [ApiVersion("1.0-odata")]
+    [ApiVersion("1.0")]
     public class WeatherForecastController : ODataController, IRepositoryApiController<WeatherForecast>
     {
         private readonly ILogger<WeatherForecastController> _logger;
